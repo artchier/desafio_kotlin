@@ -22,12 +22,12 @@ data class DigitalHouseManager(var alunos: MutableList<Aluno>,
             println("Curso não encontrado")
     }
 
-    fun registrarProfessorAdjunto(nome: String, sobrenome: String, codigoProfessor: Int, horasMonitoria: Int){
-        professores.add(ProfessorAdjunto(nome, sobrenome, 0, codigoProfessor, horasMonitoria))
-    }
-
     fun registrarProfessorTitular(nome: String, sobrenome: String, codigoProfessor: Int, especialidade: String){
         professores.add(ProfessorTitular(nome, sobrenome, 0, codigoProfessor, especialidade))
+    }
+
+    fun registrarProfessorAdjunto(nome: String, sobrenome: String, codigoProfessor: Int, horasMonitoria: Int){
+        professores.add(ProfessorAdjunto(nome, sobrenome, 0, codigoProfessor, horasMonitoria))
     }
 
     fun excluirProfessor(codigoProfessor: Int){
@@ -48,7 +48,7 @@ data class DigitalHouseManager(var alunos: MutableList<Aluno>,
 
     fun matricularAluno(codigoAluno: Int, codigoCurso: Int){
         val achou = arrayOf(false, false)
-        for(num in 0 .. cursos.size){
+        for(num in 0 until cursos.size){
             if(cursos[num].codigoCurso == codigoCurso){
                 alunos.forEach {
                     if(it.codigoAluno == codigoAluno){
@@ -70,7 +70,7 @@ data class DigitalHouseManager(var alunos: MutableList<Aluno>,
 
     fun alocarProfessores(codigoCurso: Int, codigoProfessorTitular: Int, codigoProfessorAdjunto: Int){
         val achou = arrayOf(false, false, false)
-        for(num in 1 .. cursos.size){
+        for(num in 1 until cursos.size){
             when(professores[num].codigoProfessor){
                 (codigoProfessorTitular) -> {
                     cursos.forEach {
