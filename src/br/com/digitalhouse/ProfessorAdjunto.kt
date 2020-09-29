@@ -4,11 +4,11 @@ class ProfessorAdjunto(nome: String,
                        sobrenome: String,
                        tempoDeCasa: Int,
                        codigoProfessor: Int,
-                       var horasMonitoria: Int) : Professor(nome, sobrenome, tempoDeCasa, codigoProfessor) {
+                       horasMonitoria: Int) : Professor(nome, sobrenome, tempoDeCasa, codigoProfessor) {
 
     init{
         println("Novo Professor Adjunto Registrado\nNome: $nome $sobrenome" +
-                "\nTempo de Casa: $tempoDeCasa\nCódigo: $codigoProfessor\nQuantidade de Horas de Monitoria: $horasMonitoria")
+                "\nTempo de Casa: $tempoDeCasa\nCódigo: $codigoProfessor\nQuantidade de Horas de Monitoria: $horasMonitoria\n\n")
     }
 
     override fun equals(other: Any?): Boolean {
