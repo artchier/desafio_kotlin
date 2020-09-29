@@ -3,7 +3,7 @@ package br.com.digitalhouse
 class Aluno(val nome: String, var sobrenome: String, val codigoAluno: Int) {
 
     init{
-        println("Novo Aluno Registrado\nNome: $nome $sobrenome\nCódigo: $codigoAluno")
+        println("Novo Aluno Registrado\nNome: $nome $sobrenome\nCódigo: $codigoAluno\n\n")
     }
 
     override fun equals(other: Any?): Boolean {
