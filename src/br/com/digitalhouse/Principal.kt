@@ -2,10 +2,10 @@ package br.com.digitalhouse
 
 fun main(){
 
-    val alunos = mutableListOf<Aluno>()
-    val professores = mutableListOf<Professor>()
-    val cursos = mutableListOf<Curso>()
-    val matriculas = mutableListOf<Matricula>()
+    val alunos = mutableMapOf<Int, Aluno>()
+    val professores = mutableMapOf<Int, Professor>()
+    val cursos = mutableMapOf<Int, Curso>()
+    val matriculas = mutableMapOf<Curso, Matricula>()
 
     val manager = DigitalHouseManager(alunos, professores, cursos, matriculas)
 
@@ -30,5 +30,40 @@ fun main(){
     manager.registrarAluno("Aluno", "5",  5)
     manager.matricularAluno(3, 20002)
     manager.matricularAluno(4, 20002)
+    manager.matricularAluno(5, 20002) //não dá pra matricular
+
+    manager.cursos[20002]!!.excluirAluno(manager.alunos[3]!!)
+
     manager.matricularAluno(5, 20002)
+
+    manager.professores.forEach {
+        println(it.value.codigoProfessor)
+    }
+
+    manager.excluirProfessor(1)
+
+    println()
+
+    manager.professores.forEach {
+        println(it.value.codigoProfessor)
+    }
+
+    println()
+
+    manager.cursos.forEach {
+        println(it.value.codigoCurso)
+    }
+
+    manager.excluirCurso(20001)
+
+    println()
+
+    manager.cursos.forEach {
+        println(it.value.codigoCurso)
+    }
+
+    println()
+
+    manager.registrarAluno("Aluno", "6", 6)
+    manager.matricularAluno(6, 20002)
 }

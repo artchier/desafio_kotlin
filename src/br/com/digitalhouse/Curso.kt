@@ -2,9 +2,9 @@ package br.com.digitalhouse
 
 class Curso(var nome: String, var codigoCurso: Int) {
 
-    private var alunos = mutableListOf<Aluno>()
+    private var alunos = mutableMapOf<Int, Aluno>()
     private var vagasDisponiveis: Int = 0
-    private var professoresAlocados = mutableListOf<Professor>()
+    private var professoresAlocados = mutableMapOf<Int, Professor>()
 
     constructor(nome: String, codigoCurso: Int, _vagasDisponiveis: Int) : this(nome, codigoCurso) {
         vagasDisponiveis = _vagasDisponiveis
@@ -12,7 +12,7 @@ class Curso(var nome: String, var codigoCurso: Int) {
 
     init{
         println("Novo Curso Registrado\nNome do Curso: $nome" +
-                "\nCódigo: $codigoCurso\nQuantidade Máxima de Alunos: $vagasDisponiveis")
+                "\nCódigo: $codigoCurso\n\n")
     }
 
     override fun equals(other: Any?): Boolean {
@@ -26,14 +26,22 @@ class Curso(var nome: String, var codigoCurso: Int) {
     }
 
     fun adicionarUmAluno(umAluno: Aluno): Boolean{
-        return ((vagasDisponiveis--) > 0)
+        when {
+            vagasDisponiveis > 0 -> {
+                alunos[umAluno.codigoAluno] = umAluno
+                return ((vagasDisponiveis--) > 0)
+            }
+        }
+        return false
     }
 
     fun excluirAluno(umAluno: Aluno){
         alunos.remove(umAluno)
+        println("Aluno ${umAluno.nome} ${umAluno.sobrenome} excluído com sucesso\n\n")
+        vagasDisponiveis++
     }
 
     fun alocaProfessores(professor: Professor){
-        professoresAlocados.add(professor)
+        professoresAlocados[professor.codigoProfessor] = professor
     }
 }
