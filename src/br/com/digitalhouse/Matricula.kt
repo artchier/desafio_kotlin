@@ -2,7 +2,7 @@ package br.com.digitalhouse
 
 import java.util.*
 
-class Matricula (var aluno: Aluno, var curso: Curso){
+class Matricula (aluno: Aluno, curso: Curso){
 
     var data = Date()
     init{
