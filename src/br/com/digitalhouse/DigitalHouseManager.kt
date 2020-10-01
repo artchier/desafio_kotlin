@@ -77,4 +77,13 @@ data class DigitalHouseManager(var alunos: MutableMap<Int, Aluno>,
             else -> println("Curso não encontrado\n\n")
         }
     }
+
+    fun consultaMatricula(aluno: Aluno?){
+        println("Cursos em que ${aluno?.nome} ${aluno?.sobrenome} está matriculado\n")
+        matriculas.forEach {
+            when(it.key.alunos.contains(aluno?.codigoAluno)){
+                true -> println("${it.value.curso.nome}\n${it.value.curso.codigoCurso}\n")
+            }
+        }
+    }
 }
