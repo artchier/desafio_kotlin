@@ -15,7 +15,8 @@ fun main(){
     manager.registrarProfessorAdjunto("Professor", "4", 4, 90)
 
     manager.registrarCurso("Full Stack", 20001, 3)
-    manager.registrarCurso("Android", 20002, 10)
+    manager.registrarCurso("Android", 20002, 2)
+    //manager.registrarCurso("Android", 20002, 10) //teste da parte k
 
     manager.alocarProfessores(20001, 1, 3)
     manager.alocarProfessores(20002, 2, 4)
