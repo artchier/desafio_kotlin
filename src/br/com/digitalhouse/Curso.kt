@@ -2,7 +2,7 @@ package br.com.digitalhouse
 
 class Curso(var nome: String, var codigoCurso: Int) {
 
-    private var alunos = mutableMapOf<Int, Aluno>()
+    var alunos = mutableMapOf<Int, Aluno>()
     private var vagasDisponiveis: Int = 0
     private var professoresAlocados = mutableMapOf<Int, Professor>()
 

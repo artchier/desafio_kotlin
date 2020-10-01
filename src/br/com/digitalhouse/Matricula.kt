@@ -3,7 +3,7 @@ package br.com.digitalhouse
 import java.text.SimpleDateFormat
 import java.util.*
 
-class Matricula (aluno: Aluno, curso: Curso){
+class Matricula (aluno: Aluno, var curso: Curso){
 
     var data = Date()
 
